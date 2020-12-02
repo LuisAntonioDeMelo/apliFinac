@@ -1,0 +1,36 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="false">
+  <mat-drawer [opened]="false" #drawer [mode]="'side'">
+   <div class="mat-elevation-z8 opt">
+    <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>keyboard_backspace</mat-icon>
+    <b>MENU</b>
+    </button>
+   </div>
+    <a *ngFor="let routing of routings" mat-button [routerLink]="routing.rota" target="">
+      <mat-icon>{{routing.icon}}</mat-icon>
+      {{routing.nome}} 
+    </a>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <b>
+        <span>Gestão Financeira</span>
+      </b>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>settings </mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  <!-- conteudo -->
+    <div class="container"> 
+     <router-outlet></router-outlet>
+    </div>
+  <!-- end -->
+  </mat-drawer-content>
+</mat-drawer-container>

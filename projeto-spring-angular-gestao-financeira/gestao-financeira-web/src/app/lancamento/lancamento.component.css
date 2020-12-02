@@ -1,0 +1,25 @@
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color:#fff !important;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-button-toggle {
+  color: rgb(32, 32, 32);
+}
+
+.mat-button-toggle-checked {
+  background-color:#673ab7 !important;
+  color:#fff;
+}
+
+div {
+  padding-right: 10px;
+}

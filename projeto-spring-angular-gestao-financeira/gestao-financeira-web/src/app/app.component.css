@@ -1,0 +1,43 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background: #121212;
+  color: #cacaca;
+}
+
+mat-drawer {
+  width: 20%;
+  background-color: #121212;
+  color: #d7d7d7;
+}
+
+mat-drawer-content {
+  display: flex;
+  background-color: #ebebeb;
+  flex-direction: column;
+}
+
+.opt{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+    background-color: #313233;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.opt mat-icon {
+    padding-right: 20px;
+    color:rgb(177, 161, 187)
+}
+
+a {
+    width: 100%;
+    text-align: left;
+}
+
+.container {
+    padding: 15px;
+}

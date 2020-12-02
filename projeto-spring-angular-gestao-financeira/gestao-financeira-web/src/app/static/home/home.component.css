@@ -1,0 +1,14 @@
+.mat-card1 {
+    height: 100vh;
+}
+
+.first-card {
+    width: 300px;
+    height:300px;
+    background-color: #673ab7;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}

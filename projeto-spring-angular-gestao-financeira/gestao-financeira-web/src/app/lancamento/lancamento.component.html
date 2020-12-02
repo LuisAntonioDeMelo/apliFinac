@@ -1,0 +1,159 @@
+<section>
+  <mat-card>
+    <mat-card-title>
+      <h3><b>Listar Lançamentos</b></h3>
+    </mat-card-title>
+    <br><br><br>
+    <mat-card-content>
+      <form [formGroup]="lancamentoForm" #form="ngForm">
+        <h3>Tipo Lançamento</h3>
+        <mat-button-toggle-group id="tipoLancamento" formControlName="tipoLancamento" appearance="legacy"
+          name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle id="despesa" value="0">Despesa</mat-button-toggle>
+          <mat-button-toggle id="receita" value="1">Receita</mat-button-toggle>
+        </mat-button-toggle-group>
+        <br />
+        <br />
+        <div flexLayout="flex">
+          <div fxFlex="30">
+            <h3>Pagamento</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione uma Data</mat-label>
+              <input id="dataPagamento" formControlName="dataPagamento" matInput [matDatepicker]="picker2">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div fxFlex="30">
+            <h3>Vencimento</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione uma Data</mat-label>
+              <input id="dataVencimento" formControlName="dataVencimento" matInput [matDatepicker]="picker1">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div flexLayout="flex">
+          <div fxFlex="70">
+            <h3>Descrição</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Insira a descrição</mat-label>
+              <input matInput id="descricao" formControlName="descricao">
+            </mat-form-field>
+          </div>
+          <div fxFlex="30">
+            <h3>Valor</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Insira o valor</mat-label>
+              <input matInput id="valor" formControlName="valor">
+            </mat-form-field>
+          </div>
+        </div>
+        <div flexLayout="flex">
+          <div fxFlex="50">
+            <h3>Categoria</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione uma categoria</mat-label>
+              <mat-select id="categoria" formControlName="categoria">
+                <mat-option value="">---</mat-option>
+                <mat-option [id]="categoria.codigo" *ngFor="let categoria of categorias" [value]="categoria">{{categoria.nome}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxFlex="50">
+            <h3>Pessoa</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione uma Pessoa</mat-label>
+              <mat-select id="pessoa" formControlName="pessoa">
+                <mat-option value="">---</mat-option>
+                <mat-option [id]="'pessoa-'+pessoa.codigo" *ngFor="let pessoa of pessoas" [value]="pessoa">{{pessoa.nome}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <h3>Observação</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Insira uma observação</mat-label>
+          <textarea id="observacao" matInput formControlName="observacao"></textarea>
+        </mat-form-field>
+        <div>
+          <button id="btn-limpar" (click)="limpar()" mat-raised-button color="primary" style="margin-right: 20px;">Limpar</button>
+          <button id="btn-salvar" (click)="salvar()" mat-raised-button color="primary" class="">Salvar</button>
+        </div>
+      </form>
+      <br>
+      <ng-container *ngIf="dataSource?.length > 0 ;else value">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef> No.Código </th>
+            <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef> Descriçao </th>
+            <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="dataVencimento">
+            <th mat-header-cell *matHeaderCellDef> Data Vencimento </th>
+            <td mat-cell *matCellDef="let element"> {{element.dataVencimento}} </td>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="dataPagamento">
+            <th mat-header-cell *matHeaderCellDef> Data Pagamento </th>
+            <td mat-cell *matCellDef="let element"> {{element.dataPagamento}} </td>
+          </ng-container>
+
+
+
+          <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let element"> {{element.valor | currency}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef> Categoria </th>
+            <td mat-cell *matCellDef="let element"> {{element.categoria.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="pessoa">
+            <th mat-header-cell *matHeaderCellDef> Pessoa </th>
+            <td mat-cell *matCellDef="let element"> {{element.pessoa.nome}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="observação">
+            <th mat-header-cell *matHeaderCellDef> Observação </th>
+            <td mat-cell *matCellDef="let element"> {{element.observacao | slice: 0 - 30}}... </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef>Editar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="editar(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="excluir">
+            <th mat-header-cell *matHeaderCellDef>Deletar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="excluir(element)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </ng-container>
+      <ng-template #value>
+        <p><i>is Empty</i></p>
+      </ng-template>
+
+    </mat-card-content>
+  </mat-card>
+</section>
