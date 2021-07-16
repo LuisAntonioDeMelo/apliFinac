@@ -1,5 +1,5 @@
 ## Projeto Gestão financeira ⚖
-<small>Desenvolvido para o estudo de Teste automatizados em aplicações Rest </small>
+<small>Desenvolvido para o estudo de teste automatizados em aplicações Rest </small>
 <br/>
 
 ### tecnologias 
