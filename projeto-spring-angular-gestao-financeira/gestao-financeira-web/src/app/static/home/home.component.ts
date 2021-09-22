@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  itemsCard = [
+    {nome:'Finanças Pessoais', link: 'painel-financas-pessoais',
+      submenu: [
+        {titulo:'Lançamentos'},
+        {titulo: 'Contas Cliente'},+
+        {titulo: 'Relatorio Clientes'}
+      ]
+    },
+    {nome:'Gestão', link: 'painel-gestao'},
+    {nome:'Investimentos', link: 'painel-investimentos'}
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+

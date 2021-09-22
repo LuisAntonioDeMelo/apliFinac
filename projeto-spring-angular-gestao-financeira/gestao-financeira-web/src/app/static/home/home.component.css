@@ -1,5 +1,7 @@
-.mat-card1 {
-    height: 100vh;
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .first-card {
@@ -9,6 +11,14 @@
     color: #fff;
 }
 
+.container {
+  flex-direction: row;
+  display: flex;
+}
+
 a {
     text-decoration: none;
+    padding: 0.2em;
+    margin-right: 0.5em;
 }
+

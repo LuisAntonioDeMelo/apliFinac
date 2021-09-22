@@ -11,10 +11,10 @@ export class AppComponent {
   title = 'gestao-financeira-web';
   routings = [
     {icon:'home',nome:'Inicio',rota:''},
-    {icon:'assignment',nome:'Lançamentos',rota:'lancamentos'},
-    {icon:'assignment',nome:'Pessoas',rota:'lancamentos'},
-    {icon:'assignment',nome:'Categorias',rota:'lancamentos'}
+    {icon:'assignment',nome:'Finanças Pessoais',rota:'painel-financas-pessoais'},
+    {icon:'assignment',nome:'Gestão',rota:'painel-gestao'},
+    {icon:'assignment',nome:'Investimentos',rota:'painel-investimentos'},
+    {icon:'assignment',nome:'Config',rota:''}
   ];
-
 
 }
