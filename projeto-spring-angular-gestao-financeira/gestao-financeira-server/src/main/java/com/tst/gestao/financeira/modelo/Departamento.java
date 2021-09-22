@@ -12,13 +12,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name="estado")
-public class Estado {
+@Table(name = "departamento")
+public class Departamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-    private String nome;
+    private String descricao;
 
 }

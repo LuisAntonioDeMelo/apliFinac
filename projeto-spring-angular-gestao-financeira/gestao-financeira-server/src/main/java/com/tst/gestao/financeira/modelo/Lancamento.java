@@ -2,7 +2,7 @@ package com.tst.gestao.financeira.modelo;
 
 import com.sun.istack.NotNull;
 import lombok.*;
-import alga.server.api.model.TipoLancamento;
+import com.tst.gestao.financeira.modelo.enums.TipoLancamento;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

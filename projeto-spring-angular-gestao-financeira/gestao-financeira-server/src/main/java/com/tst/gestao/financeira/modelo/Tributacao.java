@@ -2,23 +2,23 @@ package com.tst.gestao.financeira.modelo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@Table(name="estado")
-public class Estado {
+public class Tributacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-    private String nome;
-
+    private Double pis;
+    private Double icms;
+    private Double ipi;
+    private Boolean isento;
 }

@@ -1,16 +1,13 @@
 package com.tst.gestao.financeira.service;
 
-import alga.server.api.model.TipoLancamento;
+import com.tst.gestao.financeira.modelo.enums.TipoLancamento;
 import com.tst.gestao.financeira.modelo.Categoria;
 import com.tst.gestao.financeira.modelo.Lancamento;
 import com.tst.gestao.financeira.modelo.Pessoa;
-import com.tst.gestao.financeira.repository.LancamentoRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

@@ -1,6 +1,6 @@
 package com.tst.gestao.financeira.service;
 
-import alga.server.api.model.TipoLancamento;
+import com.tst.gestao.financeira.modelo.enums.TipoLancamento;
 import com.tst.gestao.financeira.modelo.Lancamento;
 import com.tst.gestao.financeira.modelo.Pessoa;
 import com.tst.gestao.financeira.repository.LancamentoRepository;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.YearMonth;
-import java.time.chrono.ChronoLocalDate;
-import java.time.temporal.Temporal;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,8 +39,8 @@ public class LancamentoService {
 
     private void validarPessoa(Lancamento lancamento) {
         Optional<Pessoa> pessoa = null;
-        if (lancamento.getPessoa().getCodigo() != null) {
-            pessoa = pessoaRepository.findById(lancamento.getPessoa().getCodigo());
+        if (lancamento.getPessoa().getId() != null) {
+            pessoa = pessoaRepository.findById(lancamento.getPessoa().getId());
         }
         if (pessoa.get() == null || pessoa.get().getAtivo() == false) {
             throw new RuntimeException();

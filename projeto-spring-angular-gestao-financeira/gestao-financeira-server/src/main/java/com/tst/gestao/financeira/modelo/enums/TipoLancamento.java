@@ -1,4 +1,4 @@
-package alga.server.api.model;
+package com.tst.gestao.financeira.modelo.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -15,10 +15,16 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codigo;
+    private Long id;
 
     @NotNull
     private String nome;
+
+    private String cpfCpnj;
+
+    private String rg;
+
+    private String email;
 
     @Embedded
     private Endereco endereco;
@@ -26,8 +32,8 @@ public class Pessoa {
     @NotNull
     private Boolean ativo;
 
-    public Pessoa(Long codigo, String nome) {
-        this.codigo = codigo;
+    public Pessoa(Long id, String nome) {
+        this.id = id;
         this.nome = nome;
     }
 }
